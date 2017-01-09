@@ -1,0 +1,10 @@
+<% 6.times do |i| %>
+user_<%= i %>:
+  name: <%= "User Nr#{i}" %>
+  lastname: <%= "User Lastname Nr#{i}" %>
+  email:  <%= "name#{i}@playvol.com" %>
+  password_digest: <%= BCrypt::Password.create('password') %>
+  token: <%= SecureRandom.base58(24) %>
+  updated_at: <%= i == 5 ? 1.hour.ago : Time.now %>
+  admin: <%= i == 0 ? true : false %>
+<% end %>

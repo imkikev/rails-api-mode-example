@@ -1,0 +1,22 @@
+
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: rails-api-mode-example_development
+
+test:
+  <<: *default
+  database: rails-api-mode-example_test
+#
+production:
+  <<: *default
+  database: rails-api-mode-example_production
+  username: rails-api-mode-example
+  password: <%= ENV['RAILS-API-MODE-EXAMPLE_DATABASE_PASSWORD'] %>
