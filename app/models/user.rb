@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-	has_secure_token
+  has_secure_token
   has_secure_password
 
    #pagination
@@ -13,8 +13,8 @@ class User < ApplicationRecord
   scope :filter_admin, ->(admin) {where('admin = ?', admin == 'true' ? true : false) if admin}
 
   def self.verify_per_page(size)
-  	return per_page unless size
-  	return size.to_i > per_page ? per_page : size
+    return per_page unless size
+    return size.to_i > per_page ? per_page : size
   end
   
 end
