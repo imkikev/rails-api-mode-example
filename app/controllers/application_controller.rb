@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
-	before_action :check_header
+  before_action :check_header
   
-	private
+  private
     def check_header
       if ['POST','PUT','PATCH'].include? request.method
         if request.content_type != "application/vnd.api+json"
@@ -60,7 +60,5 @@ class ApplicationController < ActionController::API
         total_count: object.total_entries
       }
     end
-    #end pagination
-
-    
+    #end pagination    
 end
